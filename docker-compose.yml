@@ -1,0 +1,45 @@
+services:
+  fastai:
+    image: jk/fastai
+    build: docker
+    ports:
+      - "80:80" # Jupyterlab
+      - "6006:6006" # TENSORBOARD
+      - "8088:8088" # REST CLIENT
+    volumes:
+      - ./:/app/local
+      - ./.fastai/:/home/user/.fastai
+    command: "run_jupyterlab.sh"
+    <<: &gpustuff
+      ipc: host
+      deploy:
+        resources:
+          reservations:
+            devices:
+              - capabilities: [gpu]
+
+  rest:
+    image: jk/fastai
+    #build: docker
+    ports:
+      - "8088:8088" # REST CLIENT
+    volumes:
+      - ./:/app/local
+      - ./.fastai/:/home/user/.fastai
+    command: "run_rest.sh"
+    <<: *gpustuff
+
+  tf:
+    image: jk/tf
+    build:
+      context: docker
+      dockerfile: Dockerfile.tf
+    ports:
+      - "6006:6006" # TENSORBOARD
+      - "80:80" # Jupyterlab
+    volumes:
+      - ./:/tf/local
+    command: "run_jupyterlab.sh"
+    <<: *gpustuff
+
+
