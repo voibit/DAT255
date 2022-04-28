@@ -7,6 +7,7 @@ DAT255 course project at Western Norway University of Applied Sciences.
  - [dataset](./dataset) - Datasets used by this project
  - [docker](./docker) - Docker scripts for generating the images and starting jupyterlab
  - [models](./models) - Link to trained models 
+ - [RestClinet](./models) - Rest client written in Qt
 
 
 ## Background
@@ -69,7 +70,9 @@ If there are any errors processing the file, the server will return a message so
 ```
   
 ### Client application
-TODO: make this. 
+![Clinet application](./RestClient/rest-client.png)
+  
+[Link](./RestClient/)
 
 ## Further work / ideas
 ### Preprocessing
