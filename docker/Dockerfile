@@ -5,12 +5,13 @@ ARG BUILD=prod
 ENV TZ=UTC
 RUN sudo ln -snf /usr/share/zoneinfo/$TZ /etc/localtime
 
-
-RUN sudo apt-get update && sudo apt-get upgrade -y \
+RUN sudo rm /etc/apt/sources.list.d/cuda.list \
+    && sudo rm /etc/apt/sources.list.d/nvidia-ml.list \
+    && sudo apt-get update && sudo apt-get upgrade -y \
 # Install libraries required by LightGBM
-&& sudo apt-get install -y --no-install-recommends \
-libnvidia-compute-510 nvidia-opencl-dev opencl-headers git cmake build-essential libboost-dev libboost-system-dev libboost-filesystem-dev \
-&& sudo rm -rf /var/lib/apt/lists/*
+    && sudo apt-get install -y --no-install-recommends \
+    libnvidia-compute-510 nvidia-opencl-dev opencl-headers git cmake build-essential libboost-dev libboost-system-dev libboost-filesystem-dev \
+    && sudo rm -rf /var/lib/apt/lists/*
 
 
 # Install system libraries required by OpenCV.
