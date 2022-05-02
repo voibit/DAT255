@@ -3,7 +3,8 @@ This folder contains scirpts responsible for building the docker images, and run
 
 ## fastai 
 `Dockerfile` contains the my custom fastai image. It is based on [anibali's](https://github.com/anibali/docker-pytorch)
-pytorch image. The reason I did not use the official pytorch or fastai images is because they are not up to date, and dont contain pyaudio.
+pytorch image.  
+The reason I did not use the official pytorch or fastai images is because they *were* not up to date, and did not contain torchaudio, nor cuda libraries for building lightGBM.  
 Fastai is added by cherrypicking code from [here](https://github.com/fastai/docker-containers)
 
 LightGBM is build from source for gpu acceleration to work. It is not used by this project, but is useful in machine learing experimentation. 

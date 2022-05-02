@@ -21,12 +21,12 @@ Here are some of my considerations, which may be wrong or outdated.
     - Implements augementation
     - Requires older versions of pytorch, fastaudo, fastcore (I did not manage to get it running)
 
-- pyaudio 
+- torchaudio https://pytorch.org/audio/stable/index.html
     - GPU support
     - handels IO
     - lacks CQT
 
-During this project i have used nnAudio and pyaudio. I prefare pyaudio because it handles the io, supports read offsets as argument, and even normaizes audio by default. with that said nnAudio is also a great, and is a powerfull library.
+During this project i have used nnAudio and torchaudio. I prefare torchaudio because it handles the io, supports read offsets as argument, and even normaizes audio by default. with that said nnAudio is also a great, and is a powerfull library.
 
 
 ## Signalprocessing 

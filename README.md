@@ -7,7 +7,7 @@ DAT255 course project at Western Norway University of Applied Sciences.
  - [dataset](./dataset) - Datasets used by this project
  - [docker](./docker) - Docker scripts for generating the images and starting jupyterlab
  - [models](./models) - Link to trained models 
- - [RestClinet](./models) - Rest client written in Qt
+ - [RestClinet](./RestClient/) - Rest client written in Qt
 
 
 ## Background
@@ -89,4 +89,5 @@ If there are any errors processing the file, the server will return a message so
  - Design a custom model which tranins on features from different fft-sizes separatley.
 
 ### Docker
+ - Update images, both new versions of ubnutu lts and pytorch are aviable.
  - Merge tensorflow and pytorch images. Both are based on ubuntu, so it should be possible. 
