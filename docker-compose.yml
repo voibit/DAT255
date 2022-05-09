@@ -1,6 +1,6 @@
 services:
   fastai:
-    image: jk/fastai
+    image: voidbit/ml
     build: docker
     ports:
       - "80:80" # Jupyterlab
@@ -19,14 +19,14 @@ services:
               - capabilities: [gpu]
 
   rest:
-    image: jk/fastai
+    image: voidbit/ml
     #build: docker
     ports:
       - "8088:8088" # REST CLIENT
     volumes:
       - ./:/app/local
       - ./.fastai/:/home/user/.fastai
-    command: "run_rest.sh"
+    command: "-c \"python /app/local/DeepShip/rest.py\""
     <<: *gpustuff
 
   tf:
